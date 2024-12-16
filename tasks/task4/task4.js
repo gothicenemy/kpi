@@ -5,3 +5,17 @@ async function* asyncGenerator(array) {
         );
     }
 }
+async function asyncMap(asyncIterable, callback, signal) {
+    const res = [];
+
+    for await (const item of asyncIterable) {
+        if (signal.aborted) {
+            throw new DOMException("Aborted", "Abort_Error");
+        }
+        const result = await callback(item);
+        console.log("Processing:", result);
+        res.push(result);
+    }
+
+    return res;
+}
