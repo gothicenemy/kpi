@@ -22,3 +22,13 @@ function mapWithCallback(array, callback, completionCallback) {
             });
         });
     }
+
+    function demoTest() {
+        const numbers = [2, 4, 6, 8, 10];
+
+        const doubleWithCallback = (num, callback) => {
+            setTimeout(() => {
+                callback(null, num * 2);
+            }, Math.random() * 1500);
+        };
+    }
