@@ -26,3 +26,6 @@ class DesktopDisplay {
 const weatherStation = new WeatherStation();
 const phoneDisplay = new PhoneDisplay();
 const desktopDisplay = new DesktopDisplay();
+
+weatherStation.on('temperatureChange', temp => phoneDisplay.update(temp));
+weatherStation.on('temperatureChange', temp => desktopDisplay.update(temp));
