@@ -33,3 +33,8 @@ weatherStation.on('temperatureChange', temp => desktopDisplay.update(temp));
 weatherStation.on('error', error => {
     console.error(`Error: ${error.message}`);
 });
+weatherStation.setTemperature(25);
+console.log();
+weatherStation.setTemperature(30);
+console.log();
+weatherStation.setTemperature(52);
