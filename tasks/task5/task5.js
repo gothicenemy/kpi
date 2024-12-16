@@ -13,3 +13,8 @@ class WeatherStation extends EventEmitter {
         }
     }
 }
+class PhoneDisplay {
+    update(temp) {
+        console.log(`Smartphone: The temperature has changed by ${temp}°C`);
+    }
+}
