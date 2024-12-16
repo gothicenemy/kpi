@@ -18,3 +18,8 @@ class PhoneDisplay {
         console.log(`Smartphone: The temperature has changed by ${temp}°C`);
     }
 }
+class DesktopDisplay {
+    update(temp) {
+        console.log(`Desktop: The temperature has changed by ${temp}°C`);
+    }
+}
