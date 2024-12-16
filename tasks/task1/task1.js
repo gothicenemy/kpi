@@ -28,15 +28,6 @@ function mapWithCallback(array, callback, completionCallback) {
 
         const doubleWithCallback = (num, callback) => {
             setTimeout(() => {
-                callback(null, num * 2);
-            }, Math.random() * 1500);
-        };
-    }
-    function demoTest() {
-        const numbers = [2, 4, 6, 8, 10];
-
-        const doubleWithCallback = (num, callback) => {
-            setTimeout(() => {
                 if (Math.random() < 0.1) {
                     callback(`Failed to process ${num}`);
                 } else {
@@ -44,4 +35,9 @@ function mapWithCallback(array, callback, completionCallback) {
                 }
             }, Math.random() * 1500);
         };
+        mapWithCallback(numbers, doubleWithCallback, (results) => {
+            console.log(`Processed results: ${results}`);
+        });
     }
+}
+
