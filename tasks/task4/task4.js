@@ -44,3 +44,6 @@ async function demoFunc() {
         }
     }
 }
+demoFunc()
+    .then(() => console.log("demoFunc completed successfully"))
+    .catch((err) => console.error("Error in demoFunc:", err));
