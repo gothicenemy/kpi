@@ -20,3 +20,27 @@ function promiseMap(array, fn, signal) {
 
     return Promise.all(promises);
 }
+async function demoFunc() {
+    const controller = new AbortController();
+    const { signal } = controller;
+
+    const numbers = [2, 4, 6, 8, 10];
+
+    const promiseTriple = (num) => {
+        return new Promise((resolve) => {
+            setTimeout(() => resolve(num * 5), Math.random() * 1500);
+        });
+    };
+
+    try {
+        const res1 = await promiseMap(numbers, promiseTriple, signal);
+        console.log("Case 1 result:", res1);
+    } catch (err) {
+        if (err.name === "Abort_Error") {
+            console.error("Case 1 was aborted");
+        } else {
+            console.error("Error:", err);
+        }
+    }
+
+    controller.abort();
