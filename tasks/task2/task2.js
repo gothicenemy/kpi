@@ -26,4 +26,26 @@ async function demoFunc() {
         .catch(error => {
             console.error('Error in case 1:', error);
         });
+    // case 2
+    const numbers2 = [15, 25, 35];
+
+    const promiseSquare = (num) => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (num === 25) {
+                    reject(`Warning: Cannot handle the number ${num}`);
+                } else {
+                    resolve(num ** 2);
+                }
+            }, Math.random() * 1000);
+        });
+    };
+
+    promiseMap(numbers2, promiseSquare)
+        .then(squares => {
+            console.log('Case 2 Results:', squares);
+        })
+        .catch(error => {
+            console.error('Error in case 2:', error);
+        });
 }
