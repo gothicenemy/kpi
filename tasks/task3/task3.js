@@ -44,3 +44,22 @@ async function demoFunc() {
     }
 
     controller.abort();
+    const numbers2 = [15, 25, 35];
+
+    const promiseSquare = (num) => {
+        return new Promise((resolve) => {
+            setTimeout(() => resolve(num + 100), Math.random() * 2000);
+        });
+    };
+
+    try {
+        const res2 = await promiseMap(numbers2, promiseSquare, signal);
+        console.log("Case 2 result:", res2);
+    } catch (err) {
+        if (err.name === "Abort_Error") {
+            console.error("Case 2 was aborted");
+        } else {
+            console.error("Error:", err);
+        }
+    }
+}
