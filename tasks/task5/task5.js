@@ -23,3 +23,6 @@ class DesktopDisplay {
         console.log(`Desktop: The temperature has changed by ${temp}°C`);
     }
 }
+const weatherStation = new WeatherStation();
+const phoneDisplay = new PhoneDisplay();
+const desktopDisplay = new DesktopDisplay();
